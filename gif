@@ -1,0 +1,10 @@
+#!/bin/bash
+
+param=$(xrectsel)
+
+width=$(echo $param | awk -Fx '{print $1}')
+height=$(echo $param | awk -Fx '{print $2}' | awk -F+ '{print $1}')
+x=$(echo $param | awk -Fx '{print $2}' | awk -F+ '{print $2}')
+y=$(echo $param | awk -Fx '{print $2}' | awk -F+ '{print $3}')
+
+ffmpeg -rtbufsize 100M -nostats -loglevel 0 -video_size $width'x'$height -framerate 40 -f x11grab -i :0.0+$x,$y /home/rnd/Videos/"$(date +%F\ %T)".mp4
