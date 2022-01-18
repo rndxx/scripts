@@ -1,7 +1,7 @@
 # Scripts
 ```bash
 git clone https://github.com/rndxx/scripts
-sudo cp scripts/bin ~
+sudo cp -r scripts/bin ~/bin
 
 echo 'export PATH="$HOME/bin:$PATH"' >> ~/.zshrc
 ````
